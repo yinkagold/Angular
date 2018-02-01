@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 import { Promotion } from '../shared/promotion';
 import { PROMOTIONS } from '../shared/promotions';
 
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/delay';
+
+
 @Injectable()
 export class PromotionService {
 
