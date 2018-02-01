@@ -3,7 +3,7 @@
 	lastname: string;
 	telnum: number;
 	email: string;
-	agree. boolean;
+	agree: boolean;
 	contacttype: string;
 	message: string;
   };
