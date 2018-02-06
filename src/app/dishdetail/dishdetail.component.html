@@ -14,7 +14,7 @@
 					<h3>{{ dish.name | uppercase}}</h3>
 				</md-card-title>
 			</md-card-header>
-				<img md-card-image src="{{BaseURL + dish.image}}" alt="{{ dish.name}}">
+				<img md-card-image src="{{ BaseURL + dish.image}}" alt="{{ dish.name}}">
 			<md-card-content>
 				{{ dish.description }}
 			</md-card-content>
@@ -44,7 +44,6 @@
 	        <p md-line>--{{commentForm.value.author}}  <span></span></p>
 		</md-list-item>
 	 </md-list>
-	<div class="form-size">
 		<form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
 			<p>
 				<md-input-container class="half-width" 
@@ -70,11 +69,13 @@
 			</p>
 			<button type="submit" md-button class="background-primary text-floral-white"[disabled]="commentForm.invalid">Submit</button>
 		</form>
-		
+	</div>	
 	<!--This will hide the dishes if the array is null and also hides the dish menu until it is available from the server -->
-	<div [hidden]="dish">
+	<div [hidden]="dish || errMess">
 		<md-spinner></md-spinner><h4>Loading . . .Please Wait</h4>
 	</div>
-</div>
-</div>
-</div>
+	<div *ngIf="errMess">
+		<h2>Error</h2>
+		<h4>{{errMess}}</h4>
+	</div>
+ </div>
