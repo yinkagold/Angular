@@ -28,6 +28,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { baseURL } from './shared/baseurl';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
 
 
 @NgModule({
@@ -43,16 +45,17 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
     LoginComponent
   ],
   imports: [
-	BrowserModule,
-	BrowserAnimationsModule,
-	FormsModule,
-	HttpModule,
-	MaterialModule,
-	FlexLayoutModule,
-	AppRoutingModule,
-	FormsModule,
-	ReactiveFormsModule,
-	HttpClientModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpModule,
+    MaterialModule,
+    FlexLayoutModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RestangularModule.forRoot(RestangularConfigFactory)
   ],
   providers: [ DishService,
   PromotionService, LeaderService,
