@@ -44,6 +44,7 @@
 				<md-input-container class="half-width" 
 				dividerColor="{{formErrors.firstname ? 'warn': 'primary'}}">
 					<input mdInput formControlName="firstname" placeholder="Frist Name" type="text" required>
+				
 					<md-hint>
 						<span [hidden] = "!(formErrors.firstname) ">{{formErrors.firstname}}</span>
 					</md-hint>
@@ -90,4 +91,23 @@
 			<button type="submit" md-button class="background-primary text-floral-white"[disabled]="feedbackForm.invalid">Submit</button>
 		</form>
 	  </div>
+	  <div [hidden]="!loading"  [@expand]>
+        <h3>Send us your feedback</h3>
+        <h4>Submitting Form.</h4>
+            <md-spinner></md-spinner>
+    </div>
+
+
+    <div *ngIf="feedback2"  [@expand]>
+             <h2>Success! Your feedback has been submitted</h2>
+
+             <h3>First Name:  {{feedback.firstname}} </h3>
+             <h3>Last Name: {{feedback.lastname}} </h3>
+             <h3>Tel. Number: {{feedback.telnum}} </h3>
+             <h3>Email: {{feedback.email}} </h3>
+             <h3>Contact You?: {{feedback.agree}} </h3>
+             <h3>How?: {{feedback.contacttype}} </h3>             
+             <h3>Feedback: {{feedback.message}} </h3>
+             
+   </div>
 </div>

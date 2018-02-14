@@ -23,6 +23,7 @@ import { ContactComponent } from './contact/contact.component';
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { FeedbackService } from './services/feedback.service';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -31,6 +32,7 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import { RestangularConfigFactory } from './shared/restConfig';
 import { HighlightDirective } from './directives/highlight.directive';
+import { Feedback } from './shared/feedback';
 
 
 @NgModule({
@@ -57,10 +59,11 @@ import { HighlightDirective } from './directives/highlight.directive';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+ 
     RestangularModule.forRoot(RestangularConfigFactory)
   ],
   providers: [ DishService,
-  PromotionService, LeaderService,
+  PromotionService, LeaderService, FeedbackService,
   {provide: 'BaseURL', useValue: baseURL,
   },ProcessHTTPMsgService ],
 	entryComponents: [
